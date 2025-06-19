@@ -18,6 +18,10 @@ class Details : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_details)
 
+        val displayButton = findViewById<Button>(R.id.displayButton)
+        val averageButton = findViewById<Button>(R.id.averageButton)
+        val returnButton = findViewById<Button>(R.id.returnButton)
+
         var songListView = findViewById<ListView>(R.id.songListView)
         lateinit var songList: ArrayList<String>
         lateinit var adapter: ArrayAdapter<String>
@@ -27,25 +31,37 @@ class Details : AppCompatActivity() {
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, songList)
         songListView.adapter = adapter
 
-        val songCount = 4
-        for (i in 1..songCount) {
-            val title = intent.getStringExtra("title$i") ?: ""
-            val artist = intent.getStringExtra("artist$i") ?: ""
-            val rating = intent.getStringExtra("rating$i") ?: ""
-            val comment = intent.getStringExtra("comment$i") ?: ""
-
-            songList.add("Title: ${title ?: ""}")
-            songList.add("Artist: ${artist ?: ""}")
-            songList.add("Rating: ${rating ?: ""}")
-            songList.add("Comment: ${comment ?: ""}")
-            songList.add("")
+        val maxSongsToShow = 4
+        val actualSongs = (1..maxSongsToShow).filter {
+            intent.getStringExtra("title$it")?.isNotEmpty() == true
         }
 
-        adapter?.notifyDataSetChanged()
+        displayButton.setOnClickListener {
+            songList.clear()
+            for (i in actualSongs) {
+                val title = intent.getStringExtra("title$i") ?: continue
+                val artist = intent.getStringExtra("artist$i") ?: ""
+                val rating = intent.getStringExtra("rating$i") ?: ""
+                val comment = intent.getStringExtra("comment$i") ?: ""
 
-        val displayButton = findViewById<Button>(R.id.displayButton)
-        val averageButton = findViewById<Button>(R.id.averageButton)
-        val returnButton = findViewById<Button>(R.id.returnButton)
+                songList.add("Title: $title")
+                songList.add("Artist: $artist")
+                songList.add("Rating: $rating")
+                songList.add("Comment: $comment")
+                songList.add("")
+            }
+
+            adapter?.notifyDataSetChanged()
+
+            returnButton.setOnClickListener {
+                finish()
+            }
 
         }
-        }
+    }
+}
+
+
+
+
+

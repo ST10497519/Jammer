@@ -14,6 +14,12 @@ import androidx.core.view.WindowInsetsCompat
 import android.view.LayoutInflater
 
 class MainActivity : AppCompatActivity() {
+
+    val titles = ArrayList<String>()
+    val artists = ArrayList<String>()
+    val ratings = ArrayList<Float>()
+    val comments = ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,6 +32,13 @@ class MainActivity : AppCompatActivity() {
         val nextButton = findViewById<Button>(R.id.nextButton)
         nextButton.setOnClickListener {
             val intent = Intent(this, Details::class.java)
+
+            for (i in titles.indices) {
+                intent.putExtra("title${i + 1}", titles[i])
+                intent.putExtra("artist${i + 1}", artists[i])
+                intent.putExtra("rating${i + 1}", ratings[i].toString())
+                intent.putExtra("comment${i + 1}", comments[i])
+            }
             startActivity(intent)
         }
 
@@ -55,6 +68,11 @@ class MainActivity : AppCompatActivity() {
                 val rating = ratingBar.rating
                 val comment = commentEditText.text.toString()
 
+                titles.add(title)
+                artists.add(artist)
+                ratings.add(rating)
+                comments.add(comment)
+
                 Toast.makeText(this, "Review submitted!", Toast.LENGTH_SHORT).show()
             }
 
@@ -63,6 +81,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
+
+
+
 
 
 

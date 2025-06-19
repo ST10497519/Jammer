@@ -62,7 +62,7 @@
         android:layout_marginTop="340dp"
         android:background="#19FEEF"
         android:minHeight="48dp"
-        android:text="Enter Details"
+        android:text="Add to Playlist"
         android:textColor="@android:color/black"
         android:textSize="12sp" />
 
