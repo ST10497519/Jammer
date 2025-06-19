@@ -14,10 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="40dp"
         android:hint="Title"
-        android:textColorHint="@color/white"
         android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textSize="24sp" />
 
     <EditText
@@ -84,7 +84,6 @@
         android:layout_marginTop="16dp"
         android:height="32dp"
         android:background="#19FEEF"
-        android:minHeight="32dp"
         android:text="Exit"
         android:textColor="@android:color/black"
         tools:ignore="TouchTargetSizeCheck" />

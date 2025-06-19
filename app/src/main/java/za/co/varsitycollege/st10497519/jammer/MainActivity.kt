@@ -24,10 +24,10 @@ class MainActivity : AppCompatActivity() {
             showDetailDialog()
         }
         val nextButton = findViewById<Button>(R.id.nextButton)
-            nextButton.setOnClickListener {
-                val intent = Intent(this, Details::class.java)
-                startActivity(intent)
-            }
+        nextButton.setOnClickListener {
+            val intent = Intent(this, Details::class.java)
+            startActivity(intent)
+        }
 
         val exitButton = findViewById<Button>(R.id.exitButton)
 
@@ -35,33 +35,34 @@ class MainActivity : AppCompatActivity() {
             finishAffinity()
 
         }
-        }
-                 fun showDetailDialog() {
-                    val dialogView = LayoutInflater.from(this).inflate(R.layout.activity_main, null)
-                    val titleEditText = dialogView.findViewById<EditText>(R.id.titleEditText)
-                    val artistEditText = dialogView.findViewById<EditText>(R.id.artistEditText)
-                    val ratingBar = dialogView.findViewById<RatingBar>(R.id.ratingBar)
-                    val commentEditText =
-                        dialogView.findViewById<EditText>(R.id.commentEditText)
+    }
+
+    fun showDetailDialog() {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.activity_main, null)
+        val titleEditText = dialogView.findViewById<EditText>(R.id.titleEditText)
+        val artistEditText = dialogView.findViewById<EditText>(R.id.artistEditText)
+        val ratingBar = dialogView.findViewById<RatingBar>(R.id.ratingBar)
+        val commentEditText =
+            dialogView.findViewById<EditText>(R.id.commentEditText)
 
 
-                    AlertDialog.Builder(this)
-                        .setTitle("Enter Song Title")
-                        .setView(dialogView)
-                        .setPositiveButton("Submit") { _, _ ->
-                            val title = titleEditText.text.toString()
-                            val artist = artistEditText.text.toString()
-                            val rating = ratingBar.rating
-                            val comment = commentEditText.text.toString()
+        AlertDialog.Builder(this)
+            .setTitle("Enter Song Title")
+            .setView(dialogView)
+            .setPositiveButton("Submit") { _, _ ->
+                val title = titleEditText.text.toString()
+                val artist = artistEditText.text.toString()
+                val rating = ratingBar.rating
+                val comment = commentEditText.text.toString()
 
-                            Toast.makeText(this, "Review submitted!", Toast.LENGTH_SHORT).show()
-                        }
-                        .setNegativeButton("Cancel", null)
-                        .show()
-
-
-                }
+                Toast.makeText(this, "Review submitted!", Toast.LENGTH_SHORT).show()
             }
+            .setNegativeButton("Cancel", null)
+            .show()
+
+
+    }
+}
 
 
 
