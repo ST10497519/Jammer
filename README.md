@@ -50,6 +50,9 @@ This is my source code that uses functions to move the data that is entered acro
 ![image](https://github.com/user-attachments/assets/d4786815-05e8-4697-b555-4f222ba935e8)
 This is the final product being shown on the emulator.
 
+![image](https://github.com/user-attachments/assets/b8995e39-e1dc-427d-9a8c-8c1edcb2ec3b)
+This is the 2nd page of my emulator.
+
 ## Installation
 
 1. #### Open up github desktop
