@@ -15,6 +15,7 @@ import android.view.LayoutInflater
 
 class MainActivity : AppCompatActivity() {
 
+    // Lists of song details
     val titles = ArrayList<String>()
     val artists = ArrayList<String>()
     val ratings = ArrayList<Float>()
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         nextButton.setOnClickListener {
             val intent = Intent(this, Details::class.java)
 
+            // Pass the song details to the Details activity
             for (i in titles.indices) {
                 intent.putExtra("title${i + 1}", titles[i])
                 intent.putExtra("artist${i + 1}", artists[i])
@@ -49,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
+    // Function to show the detail dialog
     fun showDetailDialog() {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.activity_main, null)
         val titleEditText = dialogView.findViewById<EditText>(R.id.titleEditText)
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         val commentEditText =
             dialogView.findViewById<EditText>(R.id.commentEditText)
 
-
+        // Show the dialog
         AlertDialog.Builder(this)
             .setTitle("Enter Song Title")
             .setView(dialogView)
@@ -67,12 +69,12 @@ class MainActivity : AppCompatActivity() {
                 val artist = artistEditText.text.toString()
                 val rating = ratingBar.rating
                 val comment = commentEditText.text.toString()
-
+                // Add the song details to the lists
                 titles.add(title)
                 artists.add(artist)
                 ratings.add(rating)
                 comments.add(comment)
-
+                // Show a toast message to confirm the review
                 Toast.makeText(this, "Review submitted!", Toast.LENGTH_SHORT).show()
             }
 
