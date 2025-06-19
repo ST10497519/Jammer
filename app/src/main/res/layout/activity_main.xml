@@ -3,31 +3,65 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/_792318"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
         android:id="@+id/titleEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_gravity="center_horizontal"
-        android:textSize="16dp"/>
+        android:layout_marginTop="26dp"
+        android:hint="Title"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
 
-    <TextView
-        android;
+    <EditText
+        android:id="@+id/artistEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"
+        android:hint="Artist"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"
+        android:numStars="5"
+        android:stepSize="1"
+        android:textSize="24sp"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/commentEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"
+        android:inputType="textMultiLine"
+        android:hint="Comment"
+        android:textColorHint="@color/white"
+        android:textSize="24sp"
+        android:textColor="@color/white"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/detailButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="540dp"
+        android:layout_marginTop="340dp"
         android:background="#19FEEF"
+        android:minHeight="48dp"
         android:text="Enter Details"
         android:textColor="@android:color/black"
         android:textSize="12sp" />
@@ -48,8 +82,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="120dp"
         android:layout_marginTop="16dp"
+        android:height="32dp"
         android:background="#19FEEF"
+        android:minHeight="32dp"
         android:text="Exit"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </LinearLayout>
