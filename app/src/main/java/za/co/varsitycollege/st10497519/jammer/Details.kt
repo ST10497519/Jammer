@@ -13,14 +13,14 @@ import androidx.core.view.WindowInsetsCompat
 
 class Details : AppCompatActivity() {
 
-    var songListView = findViewById<ListView>(R.id.songListView)
-    var songList = ArrayList<String>()
-    var adapter: ArrayAdapter<String>? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_details)
+
+        var songListView = findViewById<ListView>(R.id.songListView)
+        lateinit var songList: ArrayList<String>
+        lateinit var adapter: ArrayAdapter<String>
 
         songListView = findViewById<ListView>(R.id.songListView)
         songList = ArrayList()
@@ -29,18 +29,19 @@ class Details : AppCompatActivity() {
 
         val songCount = 4
         for (i in 1..songCount) {
-            val title = intent.getStringExtra("title$i")
-            val artist = intent.getStringExtra("artist$i")
-            val rating = intent.getFloatExtra("rating$i", 0.0f)
-            val comment = intent.getStringExtra("comment$i")
+            val title = intent.getStringExtra("title$i") ?: ""
+            val artist = intent.getStringExtra("artist$i") ?: ""
+            val rating = intent.getStringExtra("rating$i") ?: ""
+            val comment = intent.getStringExtra("comment$i") ?: ""
 
-            songList.add("Title: $title")
-            songList.add("Artist: $artist")
-            songList.add("Rating: $rating")
-            songList.add("Comment: $comment")
+            songList.add("Title: ${title ?: ""}")
+            songList.add("Artist: ${artist ?: ""}")
+            songList.add("Rating: ${rating ?: ""}")
+            songList.add("Comment: ${comment ?: ""}")
             songList.add("")
-
         }
+
+        adapter?.notifyDataSetChanged()
 
         val displayButton = findViewById<Button>(R.id.displayButton)
         val averageButton = findViewById<Button>(R.id.averageButton)

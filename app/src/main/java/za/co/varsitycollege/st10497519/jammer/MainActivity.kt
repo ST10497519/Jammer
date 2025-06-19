@@ -57,9 +57,9 @@ class MainActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "Review submitted!", Toast.LENGTH_SHORT).show()
             }
+
             .setNegativeButton("Cancel", null)
             .show()
-
 
     }
 }
