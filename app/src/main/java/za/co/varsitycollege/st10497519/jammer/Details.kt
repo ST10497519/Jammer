@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
+//ST10497519 Garrit Ievers
+
 class Details : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

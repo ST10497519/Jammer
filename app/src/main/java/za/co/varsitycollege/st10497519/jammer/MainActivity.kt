@@ -13,6 +13,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.view.LayoutInflater
 
+// ST10497519 Garrit Ievers
+
 class MainActivity : AppCompatActivity() {
 
     // Lists of song details
